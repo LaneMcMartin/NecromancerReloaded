@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj6fi7ebgo3p2"]
+
+[ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="1_ej1np"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_icdh0"]
+[ext_resource type="Script" path="res://Scenes/weaponmanager.gd" id="3_7a6eg"]
+[ext_resource type="Texture2D" uid="uid://d1srow6n0cbb7" path="res://Assets/gun.png" id="4_b0mv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwty"]
+size = Vector2(128, 128)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_icdh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3pwty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ej1np")
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+autostart = true
+
+[node name="DashActiveTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.175
+one_shot = true
+
+[node name="WeaponManager" type="Node2D" parent="."]
+position = Vector2(95, 0)
+script = ExtResource("3_7a6eg")
+
+[node name="Gun" type="Sprite2D" parent="WeaponManager"]
+texture = ExtResource("4_b0mv7")
+flip_h = true
+
+[node name="ShotSpeedTimer" type="Timer" parent="WeaponManager"]
+wait_time = 0.2
+
+[node name="Muzzle" type="Node2D" parent="WeaponManager"]
+position = Vector2(58, -21)
