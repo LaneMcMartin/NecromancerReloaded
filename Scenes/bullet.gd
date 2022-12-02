@@ -15,7 +15,6 @@ func _ready():
 
 func _physics_process(delta):
 	position += bullet_normal * speed * delta
-	rotation = bullet_normal.angle()
 
 func _on_death_timer_timeout():
 	queue_free()
@@ -23,3 +22,4 @@ func _on_death_timer_timeout():
 	
 func set_normal(input_normal):
 	bullet_normal = input_normal
+	rotation = bullet_normal.angle()

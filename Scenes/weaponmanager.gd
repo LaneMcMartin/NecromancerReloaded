@@ -3,6 +3,7 @@ extends Node2D
 # Onready
 @onready var shot_speed_timer = get_node("ShotSpeedTimer")
 @onready var muzzle = get_node("Muzzle")
+@onready var shot_sound = get_node("ShotSound")
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 @onready var world_node = get_node("/root/World")
 
@@ -25,7 +26,7 @@ func _physics_process(delta):
 		bullet.set_normal(get_parent().aim_vector)
 		bullet.global_position = muzzle.global_position
 		world_node.add_child(bullet)
-		
+		shot_sound.play()
 		
 		# Prevent us from shooting and restart the shot speed timer
 		shot_ready = false
