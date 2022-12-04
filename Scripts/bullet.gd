@@ -6,6 +6,7 @@ extends Area2D
 # Export
 @export var speed = 2000
 @export var damage = 1
+@export var spread = 0.1
 
 # Public
 var bullet_normal = Vector2()
@@ -24,6 +25,7 @@ func _on_death_timer_timeout():
 	
 func set_normal(input_normal):
 	bullet_normal = input_normal
+	bullet_normal.y += randf_range(-spread, spread)
 	rotation = bullet_normal.angle()
 
 func _on_body_entered(body):
