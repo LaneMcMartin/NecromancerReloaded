@@ -11,7 +11,7 @@ shader = ExtResource("1_uh5av")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hahx3"]
 size = Vector2(128, 128)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_dbvb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

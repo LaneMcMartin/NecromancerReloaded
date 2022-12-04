@@ -12,6 +12,7 @@ extends CharacterBody2D
 # Public
 var dash_available = true
 var dash_active = false
+var is_invincible = false
 var aim_vector
 var mouse_position
 var health = 3
@@ -19,6 +20,8 @@ var health = 3
 func _ready():
 	dash_cooldown_timer.timeout.connect(_on_dash_cooldown_timer_timeout)
 	dash_active_timer.timeout.connect(_on_dash_active_timer_timeout)
+	$InvincibleTimer.timeout.connect(_on_invincible_timer_timeout)
+	
 
 func _process(delta):
 	pass
@@ -53,12 +56,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func damage():
-	# Deduct HP
-	# Trigger invincibility
-	# Triger blinking
-	# Start timer
-	pass
+func damage(damage_taken):
+	if not is_invincible:
+		# Deduct HP
+		health -= damage_taken
+		# Trigger invincibility and blinking
+		$InvincibleTimer.start()
+		$AnimationPlayer.play("Flash")
 
 func _on_dash_cooldown_timer_timeout():
 	dash_available = true
@@ -67,3 +71,7 @@ func _on_dash_cooldown_timer_timeout():
 func _on_dash_active_timer_timeout():
 	dash_active = false
 	print("Dash active reset!")
+	
+func _on_invincible_timer_timeout():
+	is_invincible = false
+	$AnimationPlayer.stop()

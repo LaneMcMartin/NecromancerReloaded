@@ -13,7 +13,7 @@ var bullet_normal = Vector2()
 
 func _ready():
 	death_timer.timeout.connect(_on_death_timer_timeout)
-	body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 	print("bullet made!")
 
 func _physics_process(delta):
@@ -28,7 +28,7 @@ func set_normal(input_normal):
 	bullet_normal.y += randf_range(-spread, spread)
 	rotation = bullet_normal.angle()
 
-func _on_body_entered(body):
+func _on_area_entered(body):
 	queue_free()
 	if body.has_method("hit"):
 		body.hit(damage)
