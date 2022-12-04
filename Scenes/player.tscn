@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj6fi7ebgo3p2"]
+[gd_scene load_steps=8 format=3 uid="uid://bj6fi7ebgo3p2"]
 
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="1_ej1np"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_icdh0"]
 [ext_resource type="Script" path="res://Scenes/weaponmanager.gd" id="3_7a6eg"]
+[ext_resource type="AudioStream" uid="uid://dnawdggce6j6c" path="res://Assets/dash_sound.wav" id="3_kvb8l"]
 [ext_resource type="Texture2D" uid="uid://d1srow6n0cbb7" path="res://Assets/gun.png" id="4_b0mv7"]
 [ext_resource type="AudioStream" uid="uid://ba8hp063378yb" path="res://Assets/shot_sound.wav" id="5_0jmh5"]
 
@@ -29,19 +30,23 @@ process_callback = 0
 wait_time = 0.175
 one_shot = true
 
-[node name="WeaponManager" type="Node2D" parent="."]
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(95, 0)
+stream = ExtResource("3_kvb8l")
+
+[node name="WeaponManager" type="Node2D" parent="."]
 script = ExtResource("3_7a6eg")
 
 [node name="Gun" type="Sprite2D" parent="WeaponManager"]
+position = Vector2(95, 20)
 texture = ExtResource("4_b0mv7")
 flip_h = true
 
+[node name="Muzzle" type="Node2D" parent="WeaponManager"]
+position = Vector2(170, 0)
+
 [node name="ShotSpeedTimer" type="Timer" parent="WeaponManager"]
 wait_time = 0.2
-
-[node name="Muzzle" type="Node2D" parent="WeaponManager"]
-position = Vector2(58, -21)
 
 [node name="ShotSound" type="AudioStreamPlayer2D" parent="WeaponManager"]
 stream = ExtResource("5_0jmh5")

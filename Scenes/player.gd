@@ -7,11 +7,13 @@ extends CharacterBody2D
 # OnReady
 @onready var dash_cooldown_timer = get_node("DashCooldownTimer")
 @onready var dash_active_timer = get_node("DashActiveTimer")
+@onready var dash_sound = get_node("DashSound")
 
 # Public
 var dash_available = true
 var dash_active = false
 var aim_vector
+var mouse_position
 
 func _ready():
 	dash_cooldown_timer.timeout.connect(_on_dash_cooldown_timer_timeout)
@@ -23,9 +25,8 @@ func _process(delta):
 func _physics_process(delta):
 	
 	# Handle mouselook and aim vector
-	var mouse_position = get_viewport().get_mouse_position()
+	mouse_position = get_global_mouse_position()
 	aim_vector = (mouse_position - position).normalized()
-	look_at(mouse_position)
 	
 	# Handle movement
 	velocity = Vector2.ZERO
@@ -44,6 +45,7 @@ func _physics_process(delta):
 		dash_active = true
 		dash_cooldown_timer.start()
 		dash_active_timer.start()
+		dash_sound.play()
 		print("Dash timer started!")
 	if dash_active:
 		velocity *= dash_multiplier

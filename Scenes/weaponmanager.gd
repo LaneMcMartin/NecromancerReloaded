@@ -4,8 +4,10 @@ extends Node2D
 @onready var shot_speed_timer = get_node("ShotSpeedTimer")
 @onready var muzzle = get_node("Muzzle")
 @onready var shot_sound = get_node("ShotSound")
-@onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 @onready var world_node = get_node("/root/World")
+@onready var gun = get_node("Gun")
+
+@onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 
 # Public
 var shot_ready = true
@@ -17,6 +19,15 @@ func _physics_process(delta):
 	
 	# TODO: Handle parmeter switching if the player got a powerup
 	# TODO: Handle sprite switching if the player got a powerup
+	
+	# Handle mouselook
+	look_at(get_parent().mouse_position)
+	if get_parent().aim_vector.x < 0:
+		gun.flip_v = 1
+		gun.position.y = -20 # TODO: Spagehtti fix - make sure I make the sprite muzzle centered on vertical. 
+	else:
+		gun.flip_v = 0
+		gun.position.y = 20 # TODO: Spagehtti fix - make sure I make the sprite muzzle centered on vertical. 
 	
 	# Handle firing the weapon
 	if Input.is_action_pressed("FirePrimary") and shot_ready:
