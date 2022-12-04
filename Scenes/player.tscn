@@ -49,7 +49,7 @@ _data = {
 "RESET": SubResource("Animation_jrayh")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_7bc2r")
 
