@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj6fi7ebgo3p2"]
+[gd_scene load_steps=9 format=3 uid="uid://dfgdfx5r04mug"]
 
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bc2r"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="1_ej1np"]
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_icdh0"]
-[ext_resource type="Script" path="res://Scenes/weaponmanager.gd" id="3_7a6eg"]
+[ext_resource type="Script" path="res://Scenes/Camera2D.gd" id="2_bkmad"]
 [ext_resource type="AudioStream" uid="uid://dnawdggce6j6c" path="res://Assets/dash_sound.wav" id="3_kvb8l"]
 [ext_resource type="Texture2D" uid="uid://d1srow6n0cbb7" path="res://Assets/gun.png" id="4_b0mv7"]
+[ext_resource type="Script" path="res://Scripts/weaponmanager.gd" id="4_yrtw0"]
 [ext_resource type="AudioStream" uid="uid://ba8hp063378yb" path="res://Assets/shot_sound.wav" id="5_0jmh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwty"]
@@ -12,7 +13,14 @@ size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
-script = ExtResource("1_icdh0")
+script = ExtResource("1_7bc2r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+script = ExtResource("2_bkmad")
+shake_decay = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3pwty")
@@ -35,7 +43,7 @@ position = Vector2(95, 0)
 stream = ExtResource("3_kvb8l")
 
 [node name="WeaponManager" type="Node2D" parent="."]
-script = ExtResource("3_7a6eg")
+script = ExtResource("4_yrtw0")
 
 [node name="Gun" type="Sprite2D" parent="WeaponManager"]
 position = Vector2(95, 20)

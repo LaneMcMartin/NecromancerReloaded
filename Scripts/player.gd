@@ -14,6 +14,7 @@ var dash_available = true
 var dash_active = false
 var aim_vector
 var mouse_position
+var health = 3
 
 func _ready():
 	dash_cooldown_timer.timeout.connect(_on_dash_cooldown_timer_timeout)
@@ -51,6 +52,13 @@ func _physics_process(delta):
 		velocity *= dash_multiplier
 	
 	move_and_slide()
+
+func damage():
+	# Deduct HP
+	# Trigger invincibility
+	# Triger blinking
+	# Start timer
+	pass
 
 func _on_dash_cooldown_timer_timeout():
 	dash_available = true

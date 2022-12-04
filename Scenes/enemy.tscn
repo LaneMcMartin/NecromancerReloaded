@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbhj1i5vgri6y"]
+
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_dbvb6"]
+[ext_resource type="Shader" path="res://Assets/enemy.gdshader" id="1_uh5av"]
+[ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="2_ocf16"]
+[ext_resource type="AudioStream" uid="uid://bwqsirotvqg67" path="res://Assets/ouch.mp3" id="4_e5se1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31ady"]
+shader = ExtResource("1_uh5av")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hahx3"]
+size = Vector2(128, 128)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_dbvb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_31ady")
+texture = ExtResource("2_ocf16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hahx3")
+
+[node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e5se1")
+volume_db = 7.429
+pitch_scale = 0.62
