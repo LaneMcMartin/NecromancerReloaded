@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfgdfx5r04mug"]
+[gd_scene load_steps=13 format=3 uid="uid://dfgdfx5r04mug"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bc2r"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="1_ej1np"]
@@ -43,9 +43,25 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kpsvu"]
+resource_name = "NoFlash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sco3w"]
 _data = {
 "Flash": SubResource("Animation_ktmhl"),
+"NoFlash": SubResource("Animation_kpsvu"),
 "RESET": SubResource("Animation_jrayh")
 }
 

@@ -28,8 +28,8 @@ func _physics_process(delta):
 func hit(damage_taken):
 	health -= damage_taken
 	if health <= 0:
-		enemy_sound.play()
-		await enemy_sound.finished
+		#enemy_sound.play()
+		#await enemy_sound.finished
 		queue_free()
 
 func _on_body_entered(body):

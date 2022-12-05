@@ -74,4 +74,4 @@ func _on_dash_active_timer_timeout():
 	
 func _on_invincible_timer_timeout():
 	is_invincible = false
-	$AnimationPlayer.stop()
+	$AnimationPlayer.play("NoFlash")
