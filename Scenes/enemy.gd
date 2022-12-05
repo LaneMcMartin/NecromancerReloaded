@@ -30,6 +30,7 @@ func hit(damage_taken):
 	if health <= 0:
 		#enemy_sound.play()
 		#await enemy_sound.finished
+		Gamemanager.current_score += 1
 		queue_free()
 
 func _on_body_entered(body):

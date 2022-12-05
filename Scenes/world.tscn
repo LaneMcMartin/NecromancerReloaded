@@ -18,11 +18,5 @@ texture = ExtResource("2_8xpxn")
 [node name="Enemy" parent="." instance=ExtResource("3_nl2c7")]
 position = Vector2(512, 431)
 
-[node name="SpawnArea" type="ReferenceRect" parent="."]
-offset_left = -2070.0
-offset_top = -1270.0
-offset_right = 2070.0
-offset_bottom = 1270.0
-
 [node name="MobSpawner" type="Timer" parent="."]
 autostart = true
