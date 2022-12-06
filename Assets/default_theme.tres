@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c6vaftimn1uxo"]
+
+[ext_resource type="FontFile" uid="uid://bk30si76arqoh" path="res://Assets/PermanentMarker-Regular.ttf" id="1_otg44"]
+
+[resource]
+default_font = ExtResource("1_otg44")
+default_font_size = 100
+Label/colors/font_color = Color(0.980392, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.14902, 0.133333, 0.270588, 1)
+Label/colors/font_shadow_color = Color(0.0745098, 0.054902, 0.14902, 1)
+Label/constants/outline_size = 20
+Label/constants/shadow_offset_x = 5
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 15
