@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw5csba8nlclo"]
+
+[ext_resource type="Theme" uid="uid://c6vaftimn1uxo" path="res://Assets/default_theme.tres" id="1_44axy"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.5
+offset_top = -301.0
+offset_right = 331.5
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_44axy")
+
+[node name="GameOver" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_right = 663.0
+offset_bottom = 146.0
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 150.0
+offset_right = 663.0
+offset_bottom = 301.0
+text = "Start"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 305.0
+offset_right = 663.0
+offset_bottom = 456.0
+text = "Quit"
+
+[node name="BlurLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Blur" type="ColorRect" parent="BlurLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.258824)
