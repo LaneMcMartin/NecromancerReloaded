@@ -14,6 +14,7 @@ func _process(delta):
 	
 func game_over():
 	game_running = false
+	
 	var game_over_overlay = preload("res://Scenes/game_over.tscn")
 	var new_game_over_overlay = game_over_overlay.instantiate()
 	get_tree().get_root().get_node("World/UILayer").add_child(new_game_over_overlay)

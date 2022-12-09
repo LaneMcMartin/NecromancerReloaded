@@ -106,7 +106,7 @@ libraries = {
 "": SubResource("AnimationLibrary_sco3w")
 }
 
-[node name="WeaponManager" type="Node2D" parent="."]
+[node name="WeaponManager" type="Node2D" parent="." groups=["player"]]
 script = ExtResource("4_yrtw0")
 
 [node name="Gun" type="Sprite2D" parent="WeaponManager"]

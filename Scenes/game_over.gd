@@ -15,4 +15,4 @@ func _on_restart_button_down():
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 
 func _on_menu_button_down():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
