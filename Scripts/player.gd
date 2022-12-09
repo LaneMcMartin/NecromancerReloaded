@@ -60,6 +60,9 @@ func damage(damage_taken):
 	if not is_invincible:
 		# Deduct HP
 		health -= damage_taken
+		# Check death
+		if health <= 0:
+			Gamemanager.game_over()
 		# Trigger invincibility and blinking
 		$InvincibleTimer.start()
 		$AnimationPlayer.play("Flash")

@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_tfpmm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -28,7 +27,6 @@ grow_vertical = 2
 theme = ExtResource("2_14gny")
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
 offset_right = 663.0
 offset_bottom = 292.0
 text = "Necromancer:
@@ -36,14 +34,12 @@ RELOADED"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 296.0
 offset_right = 663.0
 offset_bottom = 447.0
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 451.0
 offset_right = 663.0
 offset_bottom = 602.0

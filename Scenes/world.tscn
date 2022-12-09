@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm2d1kvvfihif"]
+[gd_scene load_steps=6 format=3 uid="uid://dm2d1kvvfihif"]
 
 [ext_resource type="PackedScene" uid="uid://dfgdfx5r04mug" path="res://Scenes/player.tscn" id="1_bffoa"]
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_v28a3"]
 [ext_resource type="Texture2D" uid="uid://bbd2dmyey0pei" path="res://Assets/ground.png" id="2_8xpxn"]
 [ext_resource type="PackedScene" uid="uid://bbhj1i5vgri6y" path="res://Scenes/enemy.tscn" id="3_nl2c7"]
 [ext_resource type="PackedScene" uid="uid://griyxibr8yrm" path="res://Scenes/gui.tscn" id="5_c7nls"]
-[ext_resource type="PackedScene" uid="uid://bw5csba8nlclo" path="res://Scenes/game_over.tscn" id="6_8vrhl"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_v28a3")
@@ -26,5 +25,3 @@ autostart = true
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="UILayer" instance=ExtResource("5_c7nls")]
-
-[node name="GameOver" parent="UILayer" instance=ExtResource("6_8vrhl")]
