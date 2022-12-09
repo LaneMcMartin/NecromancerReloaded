@@ -23,5 +23,6 @@ position = Vector2(512, 431)
 autostart = true
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="GUI" parent="UILayer" instance=ExtResource("5_c7nls")]
