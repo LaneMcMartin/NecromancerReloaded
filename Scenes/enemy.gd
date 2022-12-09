@@ -18,11 +18,15 @@ func _ready():
 func _physics_process(delta):
 	if Gamemanager.game_running:
 		match movement_type:
-			0: # Attract
+			0: # Attract - Move toward player
 				var velocity = global_position.direction_to(player.global_position)
 				position += (velocity * speed * delta)
-			1: # Distanced
-				pass
+			1: # Distanced - Move toward player but maintain a distance and shoot
+				var velocity = global_position.direction_to(player.global_position)
+				if global_position.distance_to(player.global_position) <= 500:
+					position += (velocity.orthogonal() * speed * delta)
+				else:
+					position += (velocity * speed * delta)
 			2: # Erratic
 				pass
 
@@ -32,8 +36,12 @@ func hit(damage_taken):
 		#enemy_sound.play()
 		#await enemy_sound.finished
 		Gamemanager.current_score += 1
+		queue_free()
 
 func _on_body_entered(body):
 	queue_free()
 	if body.has_method("damage"):
 		body.damage(damage)
+		
+func death():
+	pass
