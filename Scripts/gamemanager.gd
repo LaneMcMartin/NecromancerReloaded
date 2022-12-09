@@ -14,7 +14,12 @@ func _process(delta):
 	
 func game_over():
 	game_running = false
-	get_tree().paused = true
+	#get_tree().paused = true
 	var game_over_overlay = preload("res://Scenes/game_over.tscn")
 	var new_game_over_overlay = game_over_overlay.instantiate()
 	get_tree().get_root().get_node("World/UILayer").add_child(new_game_over_overlay)
+	
+func game_start():
+	game_running = true
+	#get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/world.tscn")

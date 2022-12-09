@@ -13,6 +13,7 @@ extends CharacterBody2D
 var dash_available = true
 var dash_active = false
 var is_invincible = false
+var is_dead = false
 var aim_vector
 var mouse_position
 var health = 3
@@ -21,13 +22,12 @@ func _ready():
 	dash_cooldown_timer.timeout.connect(_on_dash_cooldown_timer_timeout)
 	dash_active_timer.timeout.connect(_on_dash_active_timer_timeout)
 	$InvincibleTimer.timeout.connect(_on_invincible_timer_timeout)
-	
-
-func _process(delta):
-	pass
 
 func _physics_process(delta):
-	
+	# Check aliveness
+	if is_dead:
+		return
+		
 	# Handle mouselook and aim vector
 	mouse_position = get_global_mouse_position()
 	aim_vector = (mouse_position - position).normalized()
@@ -62,7 +62,7 @@ func damage(damage_taken):
 		health -= damage_taken
 		# Check death
 		if health <= 0:
-			Gamemanager.game_over()
+			death()
 		# Trigger invincibility and blinking
 		$InvincibleTimer.start()
 		$AnimationPlayer.play("Flash")
@@ -78,3 +78,7 @@ func _on_dash_active_timer_timeout():
 func _on_invincible_timer_timeout():
 	is_invincible = false
 	$AnimationPlayer.play("NoFlash")
+	
+func death():
+	Gamemanager.game_over()
+	is_dead = true

@@ -16,14 +16,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	match movement_type:
-		0: # Attract
-			var velocity = global_position.direction_to(player.global_position)
-			position += (velocity * speed * delta)
-		1: # Distanced
-			pass
-		2: # Erratic
-			pass
+	if Gamemanager.game_running:
+		match movement_type:
+			0: # Attract
+				var velocity = global_position.direction_to(player.global_position)
+				position += (velocity * speed * delta)
+			1: # Distanced
+				pass
+			2: # Erratic
+				pass
 
 func hit(damage_taken):
 	health -= damage_taken
@@ -31,7 +32,6 @@ func hit(damage_taken):
 		#enemy_sound.play()
 		#await enemy_sound.finished
 		Gamemanager.current_score += 1
-		queue_free()
 
 func _on_body_entered(body):
 	queue_free()

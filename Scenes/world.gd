@@ -12,7 +12,8 @@ func _process(delta):
 	pass
 	
 func _on_mobspawner_timeout():
-	var spawnpoint = Vector2(randi_range(-2000,2000), randi_range(-1250,1250))
-	var new_enemy = enemy.instantiate()
-	new_enemy.position = spawnpoint
-	add_child(new_enemy)
+	if Gamemanager.game_running:
+		var spawnpoint = Vector2(randi_range(-2000,2000), randi_range(-1250,1250))
+		var new_enemy = enemy.instantiate()
+		new_enemy.position = spawnpoint
+		add_child(new_enemy)
