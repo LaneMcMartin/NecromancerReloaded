@@ -8,12 +8,14 @@ extends CharacterBody2D
 @onready var dash_cooldown_timer = get_node("DashCooldownTimer")
 @onready var dash_active_timer = get_node("DashActiveTimer")
 @onready var dash_sound = get_node("DashSound")
+@onready var bubble = preload("res://Scenes/bubble.tscn")
 
 # Public
 var dash_available = true
 var dash_active = false
 var is_invincible = false
 var is_dead = false
+var is_raising = false
 var aim_vector
 var mouse_position
 var health = 3
@@ -54,6 +56,11 @@ func _physics_process(delta):
 	if dash_active:
 		velocity *= dash_multiplier
 	
+	# Handle raise
+	if Input.is_action_pressed("FireSecondary"):
+		raise()
+		
+	
 	move_and_slide()
 
 func damage(damage_taken):
@@ -82,3 +89,6 @@ func _on_invincible_timer_timeout():
 func death():
 	Gamemanager.game_over()
 	is_dead = true
+	
+func raise():
+	pass

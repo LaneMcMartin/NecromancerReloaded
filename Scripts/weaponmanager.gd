@@ -31,7 +31,7 @@ func _physics_process(delta):
 		gun.flip_v = 0
 		gun.position.y = 20 # TODO: Spagehtti fix - make sure I make the sprite muzzle centered on vertical. 
 	
-	# Handle firing the weapon
+	# Handle firing the primary weapon
 	if Input.is_action_pressed("FirePrimary") and shot_ready:
 		
 		# Instance the bullet and provide it the player direction

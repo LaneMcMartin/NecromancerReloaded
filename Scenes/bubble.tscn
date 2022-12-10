@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ismcmkdv53u8"]
+
+[ext_resource type="SpriteFrames" uid="uid://dyo2u2sg37ud8" path="res://Assets/bubble_animation.tres" id="1_3k5im"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_his5s"]
+radius = 32.0
+
+[node name="Bubble" type="Area2D"]
+modulate = Color(1, 1, 1, 0.482353)
+scale = Vector2(6, 6)
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = ExtResource("1_3k5im")
+animation = &"bubble"
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_his5s")

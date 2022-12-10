@@ -7,8 +7,8 @@ extends Area2D
 @export_enum("Attract", "Distanced", "Erratic") var movement_type
 
 # Onready
-@onready var enemy_sound = get_node("EnemySound")
 @onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var grave = preload("res://Scenes/grave.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,9 +33,12 @@ func _physics_process(delta):
 func hit(damage_taken):
 	health -= damage_taken
 	if health <= 0:
-		#enemy_sound.play()
-		#await enemy_sound.finished
+		#$EnemySound.play()
+		#await EnemySound.finished
 		Gamemanager.current_score += 1
+		var new_grave = grave.instantiate()
+		new_grave.global_position = self.global_position
+		get_node("/root/World").add_child(new_grave)
 		queue_free()
 
 func _on_body_entered(body):
