@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfgdfx5r04mug"]
+[gd_scene load_steps=13 format=3 uid="uid://6ph36uhutsr2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bc2r"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="1_ej1np"]
-[ext_resource type="Script" path="res://Scenes/Camera2D.gd" id="2_bkmad"]
+[ext_resource type="Script" path="res://Scripts/camera2D.gd" id="2_bkmad"]
 [ext_resource type="AudioStream" uid="uid://dnawdggce6j6c" path="res://Assets/dash_sound.wav" id="3_kvb8l"]
 [ext_resource type="Texture2D" uid="uid://d1srow6n0cbb7" path="res://Assets/gun.png" id="4_b0mv7"]
 [ext_resource type="Script" path="res://Scripts/weaponmanager.gd" id="4_yrtw0"]

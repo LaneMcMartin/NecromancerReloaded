@@ -2,7 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://dyo2u2sg37ud8" path="res://Assets/bubble_animation.tres" id="1_3k5im"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_his5s"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1qj1"]
 radius = 32.0
 
 [node name="Bubble" type="Area2D"]
@@ -18,4 +18,4 @@ animation = &"bubble"
 frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_his5s")
+shape = SubResource("CircleShape2D_y1qj1")

@@ -1,24 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://cc2f4i7caqdah"]
 
-[ext_resource type="Script" path="res://Scenes/grave.gd" id="1_jp5cf"]
+[ext_resource type="Script" path="res://Scripts/grave.gd" id="1_qtfh7"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="2_2ta83"]
 [ext_resource type="Shader" path="res://Assets/grave.gdshader" id="2_i2a7f"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vw333"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ydqjl"]
 shader = ExtResource("2_i2a7f")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mioge"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yo42"]
 size = Vector2(128, 128)
 
 [node name="Grave" type="Area2D" groups=["grave"]]
 z_index = -1
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_jp5cf")
+script = ExtResource("1_qtfh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_vw333")
+material = SubResource("ShaderMaterial_ydqjl")
 texture = ExtResource("2_2ta83")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mioge")
+shape = SubResource("RectangleShape2D_4yo42")
