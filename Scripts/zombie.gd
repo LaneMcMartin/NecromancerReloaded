@@ -7,11 +7,11 @@ extends Area2D
 @export_enum("Attract", "Distanced", "Erratic") var movement_type
 
 # Public
-var target_enemy = null
+var target_enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 	target_enemy = find_closest_enemy()
 	movement_type = 0 # TODO: Fix after debugging
 
@@ -36,10 +36,11 @@ func _physics_process(delta):
 			2: # Erratic
 				pass
 
-func _on_body_entered(body):
+func _on_area_entered(area):
 	# If the enemy hit something, deal damage if it has a hit method - then delete
-	if body.has_method("damage") and body.is_in_group("enemy"):
-		body.damage(damage)
+	print(area)
+	if area.has_method("hit"):
+		area.hit(damage)
 		queue_free()
 	
 func find_closest_enemy():
