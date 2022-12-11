@@ -16,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	# Check if the game state is running
 	if Gamemanager.game_running:
 		match movement_type:
 			0: # Attract - Move toward player
@@ -30,21 +31,23 @@ func _physics_process(delta):
 			2: # Erratic
 				pass
 
+# Bullet hit method
 func hit(damage_taken):
 	health -= damage_taken
 	if health <= 0:
-		#$EnemySound.play()
-		#await EnemySound.finished
-		Gamemanager.current_score += 1
-		var new_grave = grave.instantiate()
-		new_grave.global_position = self.global_position
-		get_node("/root/World").add_child(new_grave)
-		queue_free()
+		death()
 
 func _on_body_entered(body):
-	queue_free()
+	# If the enemy hit something, deal damage if it has a hit method - then delete
 	if body.has_method("damage"):
 		body.damage(damage)
+	queue_free()
 		
 func death():
-	pass
+	#$EnemySound.play()
+	#await EnemySound.finished
+	Gamemanager.current_score += 1
+	var new_grave = grave.instantiate()
+	new_grave.global_position = self.global_position
+	get_node("/root/World").add_child(new_grave)
+	queue_free()
