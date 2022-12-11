@@ -16,14 +16,17 @@ var mouse_position
 # Stats
 var is_invincible = false
 var is_dead = false
-var is_raising = false
 var health = 3
 
+# Raising
+var is_raising = false
+
 func _ready():
-	# Connect timers
+	# Connect signals
 	$DashCooldownTimer.timeout.connect(_on_dash_cooldown_timer_timeout)
 	$DashActiveTimer.timeout.connect(_on_dash_active_timer_timeout)
 	$InvincibleTimer.timeout.connect(_on_invincible_timer_timeout)
+	$"Bubble/AnimatedSprite2D".animation_finished.connect(_on_finished_raising)
 
 func _physics_process(delta):
 	# Check aliveness
@@ -49,10 +52,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Space") and dash_available:
 		dash()
 	
+	# Handle raising
+	if Input.is_action_just_pressed("FireSecondary"):
+		raise_start()
+	if not Input.is_action_pressed("FireSecondary"):
+		raise_end()
+	
 	# Process movement
 	if dash_active:
 		velocity *= dash_multiplier
-	move_and_slide()
+	if not is_raising:
+		move_and_slide()
 
 func damage(damage_taken):
 	# Check invincibility
@@ -76,6 +86,17 @@ func dash():
 	$DashActiveTimer.start()
 	$DashSound.play()
 	
+func raise_start():
+	$Bubble.show()
+	$"Bubble/AnimatedSprite2D".play("bubble")
+	is_raising = true
+	
+func raise_end():
+	$Bubble.hide()
+	$"Bubble/AnimatedSprite2D".stop()
+	$"Bubble/AnimatedSprite2D".set_frame(0)
+	is_raising = false
+	
 func _on_dash_cooldown_timer_timeout():
 	dash_available = true
 	
@@ -85,3 +106,7 @@ func _on_dash_active_timer_timeout():
 func _on_invincible_timer_timeout():
 	is_invincible = false
 	$AnimationPlayer.play("NoFlash")
+
+func _on_finished_raising():
+	$Bubble.scan_raise()
+	raise_end()

@@ -1,26 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://2ex0bm4s2orr"]
+[gd_scene load_steps=7 format=3 uid="uid://dcuu15k6w8cgb"]
 
 [ext_resource type="Shader" path="res://Assets/enemy.gdshader" id="1_uh5av"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_usnjm"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="2_ocf16"]
 [ext_resource type="AudioStream" uid="uid://bwqsirotvqg67" path="res://Assets/ouch.mp3" id="4_e5se1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4bj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lr6mc"]
 shader = ExtResource("1_uh5av")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bujgv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fktm"]
 size = Vector2(128, 128)
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_usnjm")
-movement_type = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_3c4bj")
+material = SubResource("ShaderMaterial_lr6mc")
 texture = ExtResource("2_ocf16")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bujgv")
+shape = SubResource("RectangleShape2D_0fktm")
 
 [node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_e5se1")

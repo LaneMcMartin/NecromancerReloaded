@@ -145,7 +145,7 @@ region = Rect2(192, 384, 64, 64)
 [resource]
 animations = [{
 "frames": [SubResource("AtlasTexture_xhm43"), SubResource("AtlasTexture_7kfmp"), SubResource("AtlasTexture_evemq"), SubResource("AtlasTexture_a0hpw"), SubResource("AtlasTexture_si6v7"), SubResource("AtlasTexture_g5xod"), SubResource("AtlasTexture_74x8f"), SubResource("AtlasTexture_j0g0p"), SubResource("AtlasTexture_mlc4i"), SubResource("AtlasTexture_l3y5q"), SubResource("AtlasTexture_jvy2l"), SubResource("AtlasTexture_1r63d"), SubResource("AtlasTexture_36qjn"), SubResource("AtlasTexture_4pw3n"), SubResource("AtlasTexture_kws5p"), SubResource("AtlasTexture_p84oa"), SubResource("AtlasTexture_74st4"), SubResource("AtlasTexture_np45o"), SubResource("AtlasTexture_k51ri"), SubResource("AtlasTexture_85rt6"), SubResource("AtlasTexture_goyql"), SubResource("AtlasTexture_jbh31"), SubResource("AtlasTexture_01fpg"), SubResource("AtlasTexture_3uymk"), SubResource("AtlasTexture_s0udn"), SubResource("AtlasTexture_mb16t"), SubResource("AtlasTexture_r3rx7"), SubResource("AtlasTexture_h6px3"), SubResource("AtlasTexture_fi010"), SubResource("AtlasTexture_q1c0d"), SubResource("AtlasTexture_msdjg"), SubResource("AtlasTexture_ppb4t"), SubResource("AtlasTexture_5r67d"), SubResource("AtlasTexture_jffm3"), SubResource("AtlasTexture_bmrbx")],
-"loop": true,
+"loop": false,
 "name": &"bubble",
-"speed": 10.0
+"speed": 20.0
 }]

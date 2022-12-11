@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://be6klu2545ofm"]
+
+[ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_2oqn7"]
+[ext_resource type="Shader" path="res://Scenes/zombie.gdshader" id="2_r5uea"]
+[ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="3_hmf0x"]
+[ext_resource type="AudioStream" uid="uid://bwqsirotvqg67" path="res://Assets/ouch.mp3" id="4_v31hl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lr6mc"]
+shader = ExtResource("2_r5uea")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fktm"]
+size = Vector2(128, 128)
+
+[node name="Zombie" type="Area2D" groups=["enemy"]]
+z_index = -1
+collision_layer = 2
+script = ExtResource("1_2oqn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lr6mc")
+texture = ExtResource("3_hmf0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0fktm")
+
+[node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v31hl")
+volume_db = 7.429

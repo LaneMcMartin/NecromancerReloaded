@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6ph36uhutsr2"]
+[gd_scene load_steps=14 format=3 uid="uid://6ph36uhutsr2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bc2r"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="1_ej1np"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d1srow6n0cbb7" path="res://Assets/gun.png" id="4_b0mv7"]
 [ext_resource type="Script" path="res://Scripts/weaponmanager.gd" id="4_yrtw0"]
 [ext_resource type="AudioStream" uid="uid://ba8hp063378yb" path="res://Assets/shot_sound.wav" id="5_0jmh5"]
+[ext_resource type="PackedScene" uid="uid://ismcmkdv53u8" path="res://Scenes/bubble.tscn" id="5_747ls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwty"]
 size = Vector2(128, 128)
@@ -105,6 +106,8 @@ playback_default_blend_time = 0.1
 libraries = {
 "": SubResource("AnimationLibrary_sco3w")
 }
+
+[node name="Bubble" parent="." instance=ExtResource("5_747ls")]
 
 [node name="WeaponManager" type="Node2D" parent="." groups=["player"]]
 script = ExtResource("4_yrtw0")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6ph36uhutsr2" path="res://Scenes/player.tscn" id="1_bffoa"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_v28a3"]
 [ext_resource type="Texture2D" uid="uid://bbd2dmyey0pei" path="res://Assets/ground.png" id="2_8xpxn"]
-[ext_resource type="PackedScene" uid="uid://2ex0bm4s2orr" path="res://Scenes/enemy.tscn" id="3_nl2c7"]
+[ext_resource type="PackedScene" uid="uid://dcuu15k6w8cgb" path="res://Scenes/enemy.tscn" id="3_nl2c7"]
 [ext_resource type="PackedScene" uid="uid://cptgcdxr20r1a" path="res://Scenes/gui.tscn" id="5_c7nls"]
 
 [node name="World" type="Node2D"]
@@ -18,6 +18,7 @@ texture = ExtResource("2_8xpxn")
 
 [node name="Enemy" parent="." instance=ExtResource("3_nl2c7")]
 position = Vector2(512, 431)
+collision_layer = 3
 
 [node name="MobSpawner" type="Timer" parent="."]
 autostart = true
