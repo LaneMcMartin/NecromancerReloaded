@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ismcmkdv53u8"]
+[gd_scene load_steps=6 format=3 uid="uid://ismcmkdv53u8"]
 
 [ext_resource type="SpriteFrames" uid="uid://dyo2u2sg37ud8" path="res://Assets/bubble_animation.tres" id="1_3k5im"]
 [ext_resource type="Script" path="res://Scenes/bubble.gd" id="1_od20u"]
+[ext_resource type="AudioStream" uid="uid://kja5bx64wrbo" path="res://Assets/bubble_charge.wav" id="3_tv8sj"]
+[ext_resource type="AudioStream" uid="uid://c3x4t7mjgrere" path="res://Assets/bubble_pop.wav" id="4_k1xkv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pschh"]
 radius = 32.0
@@ -21,3 +23,9 @@ frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pschh")
+
+[node name="ChargeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tv8sj")
+
+[node name="PopAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k1xkv")

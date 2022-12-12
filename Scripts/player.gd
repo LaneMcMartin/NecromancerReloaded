@@ -92,12 +92,14 @@ func dash():
 func raise_start():
 	$Bubble.show()
 	$"Bubble/AnimatedSprite2D".play("bubble")
+	$"Bubble/ChargeAudio".play(0.0)
 	is_raising = true
 	
 func raise_end():
 	$Bubble.hide()
 	$"Bubble/AnimatedSprite2D".stop()
 	$"Bubble/AnimatedSprite2D".set_frame(0)
+	$"Bubble/ChargeAudio".stop()
 	is_raising = false
 	
 func animate_player(input_velocity):
@@ -126,4 +128,5 @@ func _on_invincible_timer_timeout():
 
 func _on_finished_raising():
 	$Bubble.scan_raise()
+	$"Bubble/PopAudio".play(0.0)
 	raise_end()
