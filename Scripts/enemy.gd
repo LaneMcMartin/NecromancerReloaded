@@ -35,6 +35,7 @@ func _physics_process(delta):
 # Bullet hit method
 func hit(damage_taken):
 	health -= damage_taken
+	$EnemySound.play()
 	if health <= 0:
 		death()
 

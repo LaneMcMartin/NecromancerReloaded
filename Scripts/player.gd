@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var dash_multiplier = 3
 
 # OnReady
-@onready var bubble = preload("res://Scenes/bubble.tscn")
+#@onready var bubble = preload("res://Scenes/bubble.tscn")
 
 # Movement
 var dash_available = true
@@ -72,6 +72,7 @@ func damage(damage_taken):
 	if not is_invincible:
 		# Deduct HP and/or cause death
 		health -= damage_taken
+		$HurtSound.play()
 		if health <= 0:
 			death()
 		# Trigger invincibility and blinking
@@ -80,6 +81,7 @@ func damage(damage_taken):
 	
 func death():
 	Gamemanager.game_over()
+	$DeathSound.play()
 	is_dead = true
 	
 func dash():

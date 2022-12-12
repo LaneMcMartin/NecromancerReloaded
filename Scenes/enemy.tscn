@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://Assets/enemy.gdshader" id="1_uh5av"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_usnjm"]
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="2_ocf16"]
-[ext_resource type="AudioStream" uid="uid://bwqsirotvqg67" path="res://Assets/ouch.mp3" id="4_e5se1"]
+[ext_resource type="AudioStream" uid="uid://cqp7anfwcyg7e" path="res://Assets/enemy_hit.wav" id="4_77b1v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o30ir"]
 shader = ExtResource("1_uh5av")
@@ -24,5 +24,5 @@ texture = ExtResource("2_ocf16")
 shape = SubResource("RectangleShape2D_0u78x")
 
 [node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_e5se1")
+stream = ExtResource("4_77b1v")
 volume_db = 7.429
