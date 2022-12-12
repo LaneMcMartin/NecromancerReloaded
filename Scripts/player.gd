@@ -63,6 +63,9 @@ func _physics_process(delta):
 		velocity *= dash_multiplier
 	if not is_raising:
 		move_and_slide()
+		
+	# Animate Sprite
+	animate_player(velocity)
 
 func damage(damage_taken):
 	# Check invincibility
@@ -96,6 +99,20 @@ func raise_end():
 	$"Bubble/AnimatedSprite2D".stop()
 	$"Bubble/AnimatedSprite2D".set_frame(0)
 	is_raising = false
+	
+func animate_player(input_velocity):
+	# Toggle movement if moving or not
+	if velocity != Vector2.ZERO:
+		$PlayerSprite.playing = true
+	else:
+		$PlayerSprite.playing = false
+	
+	# Flip sprite based off direction
+	if velocity.x <= -0.5:
+		$PlayerSprite.flip_h = true
+	if velocity.x >= 0.5:
+		$PlayerSprite.flip_h = false
+	
 	
 func _on_dash_cooldown_timer_timeout():
 	dash_available = true

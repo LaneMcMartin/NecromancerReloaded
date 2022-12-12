@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://d0cxad3ogx406" path="res://Assets/icon.svg" id="2_ocf16"]
 [ext_resource type="AudioStream" uid="uid://bwqsirotvqg67" path="res://Assets/ouch.mp3" id="4_e5se1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lr6mc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o30ir"]
 shader = ExtResource("1_uh5av")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fktm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u78x"]
 size = Vector2(128, 128)
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
@@ -17,11 +17,11 @@ collision_mask = 3
 script = ExtResource("1_usnjm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_lr6mc")
+material = SubResource("ShaderMaterial_o30ir")
 texture = ExtResource("2_ocf16")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0fktm")
+shape = SubResource("RectangleShape2D_0u78x")
 
 [node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_e5se1")
