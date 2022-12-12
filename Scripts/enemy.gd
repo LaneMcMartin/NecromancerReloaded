@@ -22,15 +22,19 @@ func _physics_process(delta):
 		match movement_type:
 			0: # Attract - Move toward player
 				var velocity = global_position.direction_to(player.global_position)
+				animate_enemy(velocity)
 				position += (velocity * speed * delta)
 			1: # Distanced - Move toward player but maintain a distance and shoot
 				var velocity = global_position.direction_to(player.global_position)
+				animate_enemy(velocity)
 				if global_position.distance_to(player.global_position) <= 500:
 					position += (velocity.orthogonal() * speed * delta)
 				else:
 					position += (velocity * speed * delta)
 			2: # Erratic
 				pass
+		
+		
 
 # Bullet hit method
 func hit(damage_taken):
@@ -53,3 +57,16 @@ func death():
 	new_grave.global_position = self.global_position
 	get_node("/root/World").add_child(new_grave)
 	queue_free()
+
+func animate_enemy(input_velocity):
+	# Toggle movement if moving or not
+	if input_velocity != Vector2.ZERO:
+		$EnemySprite.playing = true
+	else:
+		$EnemySprite.playing = false
+	
+	# Flip sprite based off direction
+	if input_velocity.x <= -0.5:
+		$EnemySprite.flip_h = true
+	if input_velocity.x >= 0.5:
+		$EnemySprite.flip_h = false

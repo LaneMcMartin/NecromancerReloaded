@@ -106,15 +106,15 @@ func raise_end():
 	
 func animate_player(input_velocity):
 	# Toggle movement if moving or not
-	if velocity != Vector2.ZERO:
+	if input_velocity != Vector2.ZERO:
 		$PlayerSprite.playing = true
 	else:
 		$PlayerSprite.playing = false
 	
 	# Flip sprite based off direction
-	if velocity.x <= -0.5:
+	if input_velocity.x <= -0.5:
 		$PlayerSprite.flip_h = true
-	if velocity.x >= 0.5:
+	if input_velocity.x >= 0.5:
 		$PlayerSprite.flip_h = false
 	
 	
