@@ -107,7 +107,7 @@ shake_decay = 10
 shape = SubResource("RectangleShape2D_3pwty")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 frames = SubResource("SpriteFrames_tckrj")
 playing = true
 

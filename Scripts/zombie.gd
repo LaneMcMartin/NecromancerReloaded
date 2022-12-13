@@ -26,9 +26,11 @@ func _physics_process(delta):
 		match movement_type:
 			0: # Attract - Move toward enemy
 				var velocity = global_position.direction_to(target_enemy.global_position)
+				animate_zombie(velocity)
 				position += (velocity * speed * delta)
 			1: # Distanced - Move toward enemy but maintain a distance and shoot
 				var velocity = global_position.direction_to(target_enemy.global_position)
+				animate_zombie(velocity)
 				if global_position.distance_to(target_enemy.global_position) <= 500:
 					position += (velocity.orthogonal() * speed * delta)
 				else:
@@ -53,3 +55,16 @@ func find_closest_enemy():
 			closest_enemy = current_enemy
 			closest_enemy_distance = current_enemy_distance
 	return closest_enemy
+
+func animate_zombie(input_velocity):
+	# Toggle movement if moving or not
+	if input_velocity != Vector2.ZERO:
+		$ZombieSprite.playing = true
+	else:
+		$ZombieSprite.playing = false
+	
+	# Flip sprite based off direction
+	if input_velocity.x <= -0.5:
+		$ZombieSprite.flip_h = true
+	if input_velocity.x >= 0.5:
+		$ZombieSprite.flip_h = false
