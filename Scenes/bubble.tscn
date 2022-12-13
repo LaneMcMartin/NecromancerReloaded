@@ -1,12 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://ismcmkdv53u8"]
+[gd_scene load_steps=13 format=3 uid="uid://ismcmkdv53u8"]
 
 [ext_resource type="SpriteFrames" uid="uid://dyo2u2sg37ud8" path="res://Assets/bubble_animation.tres" id="1_3k5im"]
 [ext_resource type="Script" path="res://Scenes/bubble.gd" id="1_od20u"]
 [ext_resource type="AudioStream" uid="uid://kja5bx64wrbo" path="res://Assets/bubble_charge.wav" id="3_tv8sj"]
 [ext_resource type="AudioStream" uid="uid://c3x4t7mjgrere" path="res://Assets/bubble_pop.wav" id="4_k1xkv"]
+[ext_resource type="Texture2D" uid="uid://drnp7mf2iy2yf" path="res://Assets/raise_charge_particle.png" id="5_hwy41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pschh"]
 radius = 32.0
+
+[sub_resource type="Gradient" id="Gradient_rimmr"]
+offsets = PackedFloat32Array(0.402597, 1)
+colors = PackedColorArray(0.535333, 1, 0.32, 1, 1, 1, 1, 0.133333)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1qtx3"]
+gradient = SubResource("Gradient_rimmr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i7r8p"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 40.0
+particle_flag_disable_z = true
+spread = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = 3.0
+angular_velocity_max = 6.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.5
+scale_min = 0.0
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_1qtx3")
+
+[sub_resource type="Gradient" id="Gradient_vtxr0"]
+colors = PackedColorArray(0.366667, 1, 0, 1, 1, 1, 1, 0.415686)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnnj6"]
+gradient = SubResource("Gradient_vtxr0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o5p61"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 15.0
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 1)
+spread = 100.0
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = 200.0
+radial_accel_max = 400.0
+scale_min = 0.0
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_jnnj6")
 
 [node name="Bubble" type="Area2D"]
 modulate = Color(1, 1, 1, 0.482353)
@@ -29,3 +80,17 @@ stream = ExtResource("3_tv8sj")
 
 [node name="PopAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_k1xkv")
+
+[node name="ChargeParticles" type="GPUParticles2D" parent="."]
+amount = 30
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_i7r8p")
+texture = ExtResource("5_hwy41")
+
+[node name="RaiseParticles" type="GPUParticles2D" parent="."]
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_o5p61")
+texture = ExtResource("5_hwy41")

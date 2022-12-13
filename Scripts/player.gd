@@ -95,6 +95,7 @@ func raise_start():
 	$Bubble.show()
 	$"Bubble/AnimatedSprite2D".play("bubble")
 	$"Bubble/ChargeAudio".play(0.0)
+	$"Bubble/ChargeParticles".set_emitting(true)
 	is_raising = true
 	
 func raise_end():
@@ -102,6 +103,7 @@ func raise_end():
 	$"Bubble/AnimatedSprite2D".stop()
 	$"Bubble/AnimatedSprite2D".set_frame(0)
 	$"Bubble/ChargeAudio".stop()
+	$"Bubble/ChargeParticles".set_emitting(false)
 	is_raising = false
 	
 func animate_player(input_velocity):
@@ -131,4 +133,5 @@ func _on_invincible_timer_timeout():
 func _on_finished_raising():
 	$Bubble.scan_raise()
 	$"Bubble/PopAudio".play(0.0)
+	$"Bubble/RaiseParticles".set_emitting(true)
 	raise_end()
