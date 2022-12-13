@@ -34,6 +34,7 @@ func _physics_process(delta):
 		bullet.global_position = $Muzzle.global_position
 		world_node.add_child(bullet)
 		$ShotSound.play()
+		$MuzzleFlash.set_emitting(true)
 		camera.apply_shake(10.0)
 		
 		# Prevent us from shooting and restart the shot speed timer

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://6ph36uhutsr2"]
+[gd_scene load_steps=24 format=3 uid="uid://6ph36uhutsr2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7bc2r"]
 [ext_resource type="Script" path="res://Scripts/camera2D.gd" id="2_bkmad"]
@@ -92,6 +92,27 @@ _data = {
 "RESET": SubResource("Animation_jrayh")
 }
 
+[sub_resource type="Gradient" id="Gradient_7j8xo"]
+colors = PackedColorArray(1, 0.533333, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b6pyv"]
+gradient = SubResource("Gradient_7j8xo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j1apy"]
+particle_flag_disable_z = true
+spread = 60.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+angular_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 3.0
+scale_min = 3.0
+scale_max = 6.0
+color = Color(1, 0.784314, 0.0117647, 1)
+color_ramp = SubResource("GradientTexture1D_b6pyv")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_7bc2r")
@@ -160,3 +181,12 @@ wait_time = 0.2
 [node name="ShotSound" type="AudioStreamPlayer2D" parent="WeaponManager"]
 stream = ExtResource("5_0jmh5")
 pitch_scale = 0.5
+
+[node name="MuzzleFlash" type="GPUParticles2D" parent="WeaponManager"]
+position = Vector2(152, 0)
+emitting = false
+amount = 10
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_j1apy")
