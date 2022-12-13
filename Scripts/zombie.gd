@@ -65,6 +65,6 @@ func animate_zombie(input_velocity):
 	
 	# Flip sprite based off direction
 	if input_velocity.x <= -0.5:
-		$ZombieSprite.flip_h = true
-	if input_velocity.x >= 0.5:
 		$ZombieSprite.flip_h = false
+	if input_velocity.x >= 0.5:
+		$ZombieSprite.flip_h = true
