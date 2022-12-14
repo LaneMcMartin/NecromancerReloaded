@@ -119,6 +119,11 @@ func animate_player(input_velocity):
 	if input_velocity.x >= 0.5:
 		$PlayerSprite.flip_h = false
 	
+func rapid_fire():
+	$"WeaponManager/ShotSpeedTimer".wait_time = 0.1
+	await get_tree().create_timer(1.0).timeout
+	$"WeaponManager/ShotSpeedTimer".wait_time = 0.2
+
 	
 func _on_dash_cooldown_timer_timeout():
 	dash_available = true
