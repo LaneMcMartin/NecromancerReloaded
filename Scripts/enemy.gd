@@ -9,6 +9,7 @@ extends Area2D
 # Onready
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var grave = preload("res://Scenes/grave.tscn")
+@onready var damage_counter = preload("res://Scenes/damage_counter.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +41,10 @@ func _physics_process(delta):
 func hit(damage_taken):
 	health -= damage_taken
 	$EnemySound.play()
+	var new_damage_counter = damage_counter.instantiate()
+	new_damage_counter.damage = damage_taken
+	new_damage_counter.global_position = self.global_position
+	get_node("/root/World").add_child(new_damage_counter)
 	if health <= 0:
 		death()
 

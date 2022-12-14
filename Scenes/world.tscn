@@ -16,8 +16,8 @@ autostart = true
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Ground" type="Sprite2D" parent="Level"]
-scale = Vector2(5, 5)
 z_index = -1
+scale = Vector2(5, 5)
 texture = ExtResource("2_8xpxn")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
