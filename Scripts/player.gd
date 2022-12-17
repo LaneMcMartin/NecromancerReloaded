@@ -121,7 +121,7 @@ func animate_player(input_velocity):
 	
 func rapid_fire():
 	$"WeaponManager/ShotSpeedTimer".wait_time = 0.1
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(10.0).timeout
 	$"WeaponManager/ShotSpeedTimer".wait_time = 0.2
 
 	

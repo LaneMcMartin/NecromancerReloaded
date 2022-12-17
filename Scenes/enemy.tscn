@@ -4,47 +4,47 @@
 [ext_resource type="Texture2D" uid="uid://clr2bq2hsqk43" path="res://Assets/enemy.png" id="3_pd4g2"]
 [ext_resource type="AudioStream" uid="uid://cqp7anfwcyg7e" path="res://Assets/enemy_hit.wav" id="4_77b1v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxwea"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol2n2"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_468a5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmrf1"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhwry"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqigx"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3qyy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbk42"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7he5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rml4a"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(64, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_de80u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0fgb"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(128, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1ghi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki14p"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(0, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj14t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_na5q2"]
 atlas = ExtResource("3_pd4g2")
 region = Rect2(64, 128, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vcqw3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yccyf"]
 animations = [{
-"frames": [SubResource("AtlasTexture_xxwea"), SubResource("AtlasTexture_468a5"), SubResource("AtlasTexture_nhwry"), SubResource("AtlasTexture_c3qyy"), SubResource("AtlasTexture_p7he5"), SubResource("AtlasTexture_de80u"), SubResource("AtlasTexture_t1ghi"), SubResource("AtlasTexture_rj14t")],
+"frames": [SubResource("AtlasTexture_ol2n2"), SubResource("AtlasTexture_dmrf1"), SubResource("AtlasTexture_bqigx"), SubResource("AtlasTexture_tbk42"), SubResource("AtlasTexture_rml4a"), SubResource("AtlasTexture_s0fgb"), SubResource("AtlasTexture_ki14p"), SubResource("AtlasTexture_na5q2")],
 "loop": true,
 "name": &"default",
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hefni"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsoeh"]
 size = Vector2(72, 128)
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
@@ -54,12 +54,12 @@ script = ExtResource("1_usnjm")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
-frames = SubResource("SpriteFrames_vcqw3")
+frames = SubResource("SpriteFrames_yccyf")
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 0)
-shape = SubResource("RectangleShape2D_hefni")
+shape = SubResource("RectangleShape2D_hsoeh")
 
 [node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_77b1v")

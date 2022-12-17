@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/grave.gd" id="1_qtfh7"]
 [ext_resource type="Texture2D" uid="uid://cl8d02o61jjmg" path="res://Assets/grave.png" id="2_hsun5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hefvx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqxva"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqmvp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11vct"]
 size = Vector2(103, 161)
 
 [node name="Grave" type="Area2D" groups=["grave"]]
@@ -15,10 +15,10 @@ collision_mask = 2
 script = ExtResource("1_qtfh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_hefvx")
+material = SubResource("ShaderMaterial_wqxva")
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_hsun5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -0.5)
-shape = SubResource("RectangleShape2D_mqmvp")
+shape = SubResource("RectangleShape2D_11vct")
